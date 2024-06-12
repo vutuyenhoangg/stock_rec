@@ -116,7 +116,7 @@ add_bg_and_custom_styles()
 
 
 # Function to read price data from CSV in a folder
-def get_price_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vietnamese-Stocks-Recommendation-System-master\\Price'):
+def get_price_from_csv(stock_code, folder_path='Price'):
     csv_file = os.path.join(folder_path, f'{stock_code}_Price.csv')
     try:
         df = pd.read_csv(csv_file)
@@ -135,7 +135,7 @@ def get_price_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vietnamese-
     except FileNotFoundError:
         return None
 
-def get_quarter_report_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vietnamese-Stocks-Recommendation-System-master\\Quarter_report'):
+def get_quarter_report_from_csv(stock_code, folder_path='Quarter_report'):
     csv_file = os.path.join(folder_path, f'{stock_code}_quarter_report.csv')
     try:
         df = pd.read_csv(csv_file)
@@ -143,7 +143,7 @@ def get_quarter_report_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vi
     except FileNotFoundError:
         return None
 # Function to read news data from CSV in a folder
-def get_news_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vietnamese-Stocks-Recommendation-System-master\\News'):
+def get_news_from_csv(stock_code, folder_path='News'):
     csv_file = os.path.join(folder_path, f'{stock_code}_news.csv')
     try:
         df = pd.read_csv(csv_file)
@@ -155,8 +155,8 @@ def get_news_from_csv(stock_code, folder_path='D:\\Study\\_PROJECT\\Vietnamese-S
 
 # Function to perform OLS regression and plot candlestick chart
 def perform_ols_and_plot(stock_code):
-    file_path1 = f'D:\\Study\\_PROJECT\\Vietnamese-Stocks-Recommendation-System-master\\Price\\{stock_code}_Price.csv'
-    file_path2 = f'D:\\Study\\_PROJECT\\Vietnamese-Stocks-Recommendation-System-master\\News\\{stock_code}_news.csv'
+    file_path1 = f'Price\\{stock_code}_Price.csv'
+    file_path2 = f'News\\{stock_code}_news.csv'
 
     # Load the CSV file into a DataFrame
     df1 = pd.read_csv(file_path1)
@@ -483,7 +483,7 @@ def display_stock_quarter_report(stock_code):
     else:
         st.error(f"Không tìm thấy báo cáo tài chính theo từng quý cho cổ phiếu {stock_code}.")
         st.write(
-            f"Debug info: File path tried - {os.path.join('C:/Users/admin/PycharmProjects/pythonProject1/Quarter_report', f'{stock_code}_quarter_report.csv')}")
+            f"Debug info: File path tried - {os.path.join('Quarter_report', f'{stock_code}_quarter_report.csv')}")
 
 
 # Function to read the filtered sorted stocks from the uploaded file
@@ -499,7 +499,7 @@ def get_filtered_sorted_stocks(file_path):
 
 # Display the filtered sorted stocks
 def display_filtered_sorted_stocks():
-    file_path = 'D:\\Study\\_PROJECT\Vietnamese-Stocks-Recommendation-System-master\\ChooseStock\\goodfindexstock.csv'
+    file_path = 'ChooseStock\\goodfindexstock.csv'
     filtered_sorted_stocks = get_filtered_sorted_stocks(file_path)
 
     if not filtered_sorted_stocks.empty:
@@ -510,7 +510,7 @@ def display_filtered_sorted_stocks():
 
 
 def perform_clustering():
-    df = pd.read_csv("D:\\Study\\_PROJECT\Vietnamese-Stocks-Recommendation-System-master\\Clustering\\Clustering.csv")
+    df = pd.read_csv("Clustering/Clustering.csv")
     df = pd.DataFrame(df)
 
     # Standardize the data
